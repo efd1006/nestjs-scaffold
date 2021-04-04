@@ -29,8 +29,8 @@
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ### TODOS
-- [ ] Create endpoint on permissions conrtoller to list all route resource on permissions
-- [ ] Create endpoint on permissions conrtoller to list all permission prefix
+- [ ] Create endpoint on permissions controller to list all route resource on permissions
+- [ ] Create endpoint on permissions controller to list all permission prefix
 - [ ] CRUD permissions
 - [ ] CRUD role
 - [ ] Assigning of permissions on a specific role
