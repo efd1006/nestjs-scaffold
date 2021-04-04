@@ -34,6 +34,41 @@
 $ npm install
 ```
 
+## Database Related (migration, seed, setup)
+
+```bash
+# Setup Database (build dist -> reset db -> run migration -> run seed)
+$ npm run db:setup
+
+# Generate migration based on created entity (auto generated)
+$ npm run migration:generate -n <migration_name>
+
+# Create an empty migration file
+$ npm run migration:create -n <migration_name>
+
+# Running the migration
+$ npm run migration:up
+
+# Revert a migration
+$ npm run migration:down
+
+# Show available migrations
+$ npm run migration:show
+
+# Run the seeder
+$ npm run seed
+
+# Run specific seed class
+$ npm run seed:class <ClassName>
+
+# Show seeding connection config
+$ npm run seed:config
+
+# Drop all the schema (Hard reset)
+$ npm run schema:drop
+
+```
+
 ## Running the app
 
 ```bash
