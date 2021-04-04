@@ -1,7 +1,5 @@
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Connection } from 'typeorm';
-import { v4 as uuidv4 } from 'uuid';
-import { hashPassword } from '../../shared/utils';
 import { RoleEntity } from '../../modules/role/entity/role.entity';
 import { PermissionEntity } from '../../modules/permission/entity/permission.entity';
 

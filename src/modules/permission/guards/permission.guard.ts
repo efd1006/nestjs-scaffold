@@ -1,7 +1,7 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from "@nestjs/core";
-import { PERMISSIONS_PREFIX } from '../../../shared/enums';
 import { PermissionEntity } from '../entity/permission.entity';
+import { PERMISSIONS_PREFIX } from '../enums';
 import { PermissionService } from '../permission.service';
 
 @Injectable()

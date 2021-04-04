@@ -1,6 +1,6 @@
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Connection } from 'typeorm';
-import { PERMISSIONS_PREFIX, ROUTE_RESOURCE } from '../../shared/enums';
+import { PERMISSIONS_PREFIX, ROUTE_RESOURCE } from '../../modules/permission/enums';
 
 export default class SeedPermissions implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
