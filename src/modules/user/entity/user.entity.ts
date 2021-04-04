@@ -1,4 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { classToPlain, Exclude } from "class-transformer";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { UserAuthSessionEntity } from "../../auth/entity/user_auth_session.entity";
 
 @Entity('users')
 export class UserEntity {
@@ -12,6 +14,7 @@ export class UserEntity {
   })
   email: string
 
+  @Exclude()
   @Column({
     type: 'text'
   })
@@ -22,5 +25,12 @@ export class UserEntity {
 
   @UpdateDateColumn()
   updated_at: Date
+
+  @OneToMany(() => UserAuthSessionEntity, session => session.user)
+  auth_sessions: UserAuthSessionEntity[]
+
+  toJSON() {
+    return classToPlain(this);
+  }
 
 }

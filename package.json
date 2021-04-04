@@ -43,6 +43,8 @@
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "dotenv": "^8.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
