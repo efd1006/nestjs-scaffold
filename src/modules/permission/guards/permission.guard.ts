@@ -24,7 +24,7 @@ export class PermissionGuard implements CanActivate {
   private async checkPermissions(resource: string, context: ExecutionContext): Promise<boolean> {
   
     if (!resource) {
-      // meaning this is public because the HasPermissionDecorator id not present in the specific route
+      // meaning this is public because the HasPermissionDecorator is not present in the route
       return true;
     }
 
