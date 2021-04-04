@@ -1,6 +1,6 @@
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Connection } from 'typeorm';
-import { PERMISSIONS_PREFIX } from '../../shared/enums';
+import { PERMISSIONS_PREFIX, ROUTE_RESOURCE } from '../../shared/enums';
 
 export default class SeedPermissions implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<any> {
@@ -8,16 +8,16 @@ export default class SeedPermissions implements Seeder {
 
     let permissions = [
       {
-        name: `${PERMISSIONS_PREFIX.CREATE}USERS`
+        name: `${PERMISSIONS_PREFIX.CREATE}${ROUTE_RESOURCE.USERS}`
       },
       {
-        name: `${PERMISSIONS_PREFIX.READ}USERS`
+        name: `${PERMISSIONS_PREFIX.READ}${ROUTE_RESOURCE.USERS}`
       },
       {
-        name: `${PERMISSIONS_PREFIX.UPDATE}USERS`
+        name: `${PERMISSIONS_PREFIX.UPDATE}${ROUTE_RESOURCE.USERS}`
       },
       {
-        name: `${PERMISSIONS_PREFIX.DELETE}USERS`
+        name: `${PERMISSIONS_PREFIX.DELETE}${ROUTE_RESOURCE.USERS}`
       },
     ];
     await connection.getRepository(tableName).save([...permissions], { chunk: 500 });
