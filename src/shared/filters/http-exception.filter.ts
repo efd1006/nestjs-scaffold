@@ -1,7 +1,10 @@
-import { ExceptionFilter, Catch, HttpException, ArgumentsHost, HttpStatus } from '@nestjs/common';
+import { ExceptionFilter, Catch, HttpException, ArgumentsHost, HttpStatus, Logger } from '@nestjs/common';
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
+  
+  private readonly logger = new Logger(HttpExceptionFilter.name);
+  
   catch(error: Error, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const request = ctx.getRequest();
@@ -9,6 +12,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const status = (error instanceof HttpException) ? error.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
 
     if (status === HttpStatus.INTERNAL_SERVER_ERROR) {
+      this.logger.error(error.stack)
       return response.status(500).json({
         statusCode: 500,
         timestamp: new Date().toISOString(),
