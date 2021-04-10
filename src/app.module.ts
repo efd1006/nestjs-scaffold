@@ -7,12 +7,13 @@ import { UserModule } from './modules/user/user.module';
 import { RoleModule } from './modules/role/role.module';
 import { PermissionModule } from './modules/permission/permission.module';
 import * as ormconfig from './ormconfig';
-import { APP_FILTER } from '@nestjs/core';
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { HttpExceptionFilter } from './shared/filters';
 import * as winston from 'winston';
 import { WinstonModule } from 'nest-winston';
 import 'dotenv/config'
 import { NODE_ENV } from './shared/enums';
+import { HttpConsoleLoggerInterceptor } from './shared/interceptors';
 
 let winstoTransports = []
 
@@ -40,6 +41,10 @@ if(process.env.ENV === NODE_ENV.PRODUCTION) {
   controllers: [AppController],
   providers: [
     AppService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: HttpConsoleLoggerInterceptor,
+    },
     {
       provide: APP_FILTER,
       useClass: HttpExceptionFilter,
