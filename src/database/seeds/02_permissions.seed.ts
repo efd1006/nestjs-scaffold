@@ -8,6 +8,30 @@ export default class SeedPermissions implements Seeder {
 
     let permissions = [
       {
+        name: `${PERMISSIONS_PREFIX.CREATE}${ROUTE_RESOURCE.ROLES}`
+      },
+      {
+        name: `${PERMISSIONS_PREFIX.READ}${ROUTE_RESOURCE.ROLES}`
+      },
+      {
+        name: `${PERMISSIONS_PREFIX.UPDATE}${ROUTE_RESOURCE.ROLES}`
+      },
+      {
+        name: `${PERMISSIONS_PREFIX.DELETE}${ROUTE_RESOURCE.ROLES}`
+      },
+      {
+        name: `${PERMISSIONS_PREFIX.CREATE}${ROUTE_RESOURCE.PERMISSIONS}`
+      },
+      {
+        name: `${PERMISSIONS_PREFIX.READ}${ROUTE_RESOURCE.PERMISSIONS}`
+      },
+      {
+        name: `${PERMISSIONS_PREFIX.UPDATE}${ROUTE_RESOURCE.PERMISSIONS}`
+      },
+      {
+        name: `${PERMISSIONS_PREFIX.DELETE}${ROUTE_RESOURCE.PERMISSIONS}`
+      },
+      {
         name: `${PERMISSIONS_PREFIX.CREATE}${ROUTE_RESOURCE.USERS}`
       },
       {
