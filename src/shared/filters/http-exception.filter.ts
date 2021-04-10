@@ -9,7 +9,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const status = (error instanceof HttpException) ? error.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
 
     if (status === HttpStatus.INTERNAL_SERVER_ERROR) {
-      response.status(500).json({
+      return response.status(500).json({
         statusCode: 500,
         timestamp: new Date().toISOString(),
         path: request.url,
@@ -17,7 +17,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       })
     }
 
-    response.status(status).json({
+    return response.status(status).json({
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
