@@ -5,8 +5,8 @@ import { ValidationException } from '../exceptions/validation.exception';
 export class ValidationFilter implements ExceptionFilter {
   catch(exception: ValidationException, host: ArgumentsHost): any {
     const ctx = host.switchToHttp();
+    const request = ctx.getRequest();
     const response = ctx.getResponse();
-
     // console.log(exception.validationErrors)
 
     const validationErrors = exception.validationErrors.map(e => {
@@ -21,6 +21,8 @@ export class ValidationFilter implements ExceptionFilter {
 
     return response.status(400).json({
       statusCode: 400,
+      timestamp: new Date().toISOString(),
+      path: request.url,
       error: 'ValidationException',
       message: err,
       validationMetadata: validationErrors
