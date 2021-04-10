@@ -25,7 +25,8 @@ export class AuthService {
 
     // find the user
     const user = await this.usersRepository.findOne({
-      where: { email: dto.email }
+      where: { email: dto.email },
+      relations: ['role']
     })
 
     if (!user) {
