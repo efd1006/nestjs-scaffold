@@ -32,9 +32,8 @@
 - [ ] Create endpoint on permissions controller to list all route resource on permissions
 - [ ] Create endpoint on permissions controller to list all permission prefix
 - [ ] CRUD permissions
-- [ ] CRUD role
-- [ ] Assigning of permissions on a specific role
-
+- [x] CRUD role
+- [x] Assigning of permissions on a specific role
 
 ## Installation
 
