@@ -49,6 +49,7 @@
     "dotenv": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.3.0",
+    "nest-winston": "^1.4.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
@@ -59,7 +60,8 @@
     "swagger-ui-express": "^4.1.6",
     "typeorm": "^0.2.32",
     "typeorm-seeding": "^1.6.1",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
