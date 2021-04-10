@@ -8,7 +8,7 @@ import { RoleModule } from './modules/role/role.module';
 import { PermissionModule } from './modules/permission/permission.module';
 import * as ormconfig from './ormconfig';
 import { APP_FILTER } from '@nestjs/core';
-import { InternalServerExceptionFilter } from './shared/filters';
+import { HttpExceptionFilter } from './shared/filters';
 
 @Module({
   imports: [
@@ -23,7 +23,7 @@ import { InternalServerExceptionFilter } from './shared/filters';
     AppService,
     {
       provide: APP_FILTER,
-      useClass: InternalServerExceptionFilter,
+      useClass: HttpExceptionFilter,
     },
   ],
 })
