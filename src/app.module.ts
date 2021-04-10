@@ -7,6 +7,8 @@ import { UserModule } from './modules/user/user.module';
 import { RoleModule } from './modules/role/role.module';
 import { PermissionModule } from './modules/permission/permission.module';
 import * as ormconfig from './ormconfig';
+import { APP_FILTER } from '@nestjs/core';
+import { InternalServerExceptionFilter } from './shared/filters';
 
 @Module({
   imports: [
@@ -17,6 +19,12 @@ import * as ormconfig from './ormconfig';
     PermissionModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: InternalServerExceptionFilter,
+    },
+  ],
 })
 export class AppModule {}
