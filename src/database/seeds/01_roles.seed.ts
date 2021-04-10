@@ -7,10 +7,10 @@ export default class SeedRoles implements Seeder {
 
     let roles = [
       {
-        name: 'User'
+        name: 'Admin'
       },
       {
-        name: 'Admin'
+        name: 'User'
       },
     ];
     await connection.getRepository(tableName).save([...roles], { chunk: 500 });
