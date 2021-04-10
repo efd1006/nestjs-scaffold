@@ -32,7 +32,7 @@ export class PermissionGuard implements CanActivate {
     const user = await this.permissionService.findOneUser({ id: request.user.id }, ['role']);
     const userRole = await this.permissionService.findOneRole({ id: user.role.id }, ['permissions']);
     // console.log(userRole);
-
+    // console.log(request.method)
     switch(request.method) {
       case 'GET':
         return userRole.permissions.some((p: PermissionEntity) => (p.name === `${PERMISSIONS_PREFIX.READ}${resource}`));
