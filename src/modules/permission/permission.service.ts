@@ -2,8 +2,6 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { Repository } from 'typeorm';
-import { RoleEntity } from '../role/entity/role.entity';
-import { UserEntity } from '../user/entity/user.entity';
 import { CreatePermissionDTO } from './dto';
 import { PermissionEntity } from './entity/permission.entity';
 import { PERMISSIONS_PREFIX, ROUTE_RESOURCE } from './enums';
@@ -12,9 +10,7 @@ import { PERMISSIONS_PREFIX, ROUTE_RESOURCE } from './enums';
 export class PermissionService extends TypeOrmCrudService<PermissionEntity> {
 
   constructor(
-    @InjectRepository(PermissionEntity) private permissionsRepository: Repository<PermissionEntity>,
-    @InjectRepository(UserEntity) private usersRepository: Repository<UserEntity>,
-    @InjectRepository(RoleEntity) private rolesRepository: Repository<RoleEntity>,
+    @InjectRepository(PermissionEntity) private permissionsRepository: Repository<PermissionEntity>
   ) {
     super(permissionsRepository)
   }
@@ -36,13 +32,5 @@ export class PermissionService extends TypeOrmCrudService<PermissionEntity> {
     }catch(e) {
       throw new HttpException(e.details || String(e), HttpStatus.BAD_REQUEST)
     }
-  }
-
-  async findOneUser(condition, relations: string[] = []) {
-    return await this.usersRepository.findOne(condition, {relations})
-  }
-
-  async findOneRole(condition, relations: string[] = []) {
-    return await this.rolesRepository.findOne(condition, {relations})
   }
 }
