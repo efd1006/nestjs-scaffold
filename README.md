@@ -34,7 +34,7 @@
 - [x] CRUD permissions
 - [x] CRUD role
 - [x] Assigning of permissions on a specific role
-- [ ] Refactor permission.guard.ts to reduce query calls. One solution is to fetch the roles and permissions directly from the signed JWT or from req.user
+- [x] Refactor permission.guard.ts to reduce query calls. One solution is to fetch the roles and permissions directly from the signed JWT or from req.user
 
 ## Installation
 
