@@ -11,6 +11,7 @@ import { ValidationFilter } from './shared/filters';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors()
   app.setGlobalPrefix('api/v1');
   app.useGlobalFilters(new ValidationFilter());
   app.useGlobalPipes(new ValidationPipe({
